@@ -29,4 +29,12 @@
         android:layout_width="match_parent"
         android:layout_height="353dp" />
 
+    <Button
+        android:text="Voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        app:layout_anchorGravity="bottom|center_horizontal"
+        android:layout_gravity="bottom|center_horizontal" />
+
 </android.support.design.widget.CoordinatorLayout>
