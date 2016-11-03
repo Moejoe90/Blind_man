@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private boolean flag = false;
     private AudioAttributes audioAttributes;
-    private  SoundPool soundPool;
+    private SoundPool soundPool;
+    private ShakeListener mShaker;
 
     private int leftSound, rightSound, dangerousSound;
 
@@ -55,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
         leftSound = soundPool.load(this, R.raw.left, 1);
         rightSound = soundPool.load(this, R.raw.right, 1);
         dangerousSound = soundPool.load(this, R.raw.dangerous, 1);
+
+        mShaker = new ShakeListener(this);
+        mShaker.setOnShakeListener(new ShakeListener.OnShakeListener() {
+            @Override
+            public void onShake() {
+                soundPool.play(dangerousSound, 1.0f, 1.0f, 0, 5, 1);
+            }
+        });
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
