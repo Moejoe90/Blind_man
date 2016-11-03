@@ -1,7 +1,9 @@
 package com.example.narikazu.myapplication;
 
+import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Bundle;
+import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private boolean flag = false;
+    private AudioAttributes audioAttributes;
+    private  SoundPool soundPool;
+
+    private int leftSound, rightSound, dangerousSound;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -34,6 +41,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        audioAttributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                .build();
+
+        soundPool = new SoundPool.Builder()
+                .setAudioAttributes(audioAttributes)
+                .setMaxStreams(5)
+                .build();
+
+        leftSound = soundPool.load(this, R.raw.left, 1);
+        rightSound = soundPool.load(this, R.raw.right, 1);
+        dangerousSound = soundPool.load(this, R.raw.dangerous, 1);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
