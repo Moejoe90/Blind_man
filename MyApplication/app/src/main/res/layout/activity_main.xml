@@ -27,6 +27,6 @@
         android:src="@drawable/direction"
         android:scaleType="fitCenter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="353dp" />
 
 </android.support.design.widget.CoordinatorLayout>
