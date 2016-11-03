@@ -8,8 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView textView;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button button = (Button)findViewById(R.id.buttonA);
+        textView = (TextView)findViewById(R.id.textViewA);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (flag) {
+                    textView.setText("Hello");
+                    flag = false;
+                }
+                else {
+                    textView.setText("world");
+                    flag = ture;
+                }
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
