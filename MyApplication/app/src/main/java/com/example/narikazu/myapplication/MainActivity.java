@@ -62,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
         dangerousSound = soundPool.load(this, R.raw.dangerous, 1);
 
         mShaker = new ShakeListener(this);
+
+
         mShaker.setOnShakeListener(new ShakeListener.OnShakeListener() {
             @Override
             public void onShake() {
-                soundPool.play(dangerousSound, 1.0f, 1.0f, 0, 5, 1);
+                soundPool.play(dangerousSound, 1.0f, 1.0f, 0, 1, 1);
             }
         });
 

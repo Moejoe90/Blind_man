@@ -12,11 +12,11 @@ import android.view.Menu;
  */
 
 public class ShakeListener extends Activity implements SensorListener {
-    private static final int FORCE_THRESHOLD = 350;
+    private static final int FORCE_THRESHOLD = 2000;
     private static final int TIME_THRESHOLD = 100;
-    private static final int SHAKE_TIMEOUT = 500;
+    private static final int SHAKE_TIMEOUT = 200;
     private static final int SHAKE_DURATION = 100;
-    private static final int SHAKE_COUNT = 5;
+    private static final int SHAKE_COUNT = 2;
 
     private SensorManager mSensorManager;
     private float mLastX = -1.0f, mLastY = -1.0f, mLastZ = -1.0f;
