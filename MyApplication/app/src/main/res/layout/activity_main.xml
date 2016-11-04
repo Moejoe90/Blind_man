@@ -30,6 +30,7 @@
         android:layout_height="353dp" />
 
     <Button
+        android:drawableLeft="@drawable/microphone"
         android:text="Voice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
